@@ -19,32 +19,41 @@ public class aulaOrientacao {
         //Parametro que limpa a memoria para não ocorrer nenhum erro!
         //sc.nextLine();
 
+        Professor professor1 = new Professor();
 
-       nomeLista();
+        //para que todos os metodos separados recebam os mesmo valores dos construtores sem resetar, o objeto instanciado deve ser atribuido ao metodo que está puxando a função
+       nomeLista(professor1);
+
+       exibirLista(professor1);
 
         System.out.println();
 
-        matriculaLista();
+        //matriculaLista();
 
     }
+    //Função na qual possui o parametro do objeto instanciado na classe main para que todos os metodos recebam o mesmo construtor junto ao seus valores
+    public static void exibirLista(Professor professor1){
 
-    public static void nomeLista(){
+        //Estrutura de repetição que vai receber um objeto que puxa o metodo getNomeProfessor que vai pegar o nome dos professores da lista e exibir cada um em sua posição
+        for(int x = 0; x < professor1.getNomesprofessores().length; x++){
+            System.out.println(professor1.getNomesprofessores()[x]);
+        }
+    }
+
+    public static void nomeLista(Professor professor1){
         Scanner sc = new Scanner(System.in);
-        Professor professor2 = new Professor();
 
         //Estrutura de repetição que atribui um nome a uma posição dentro da lista professor e o tamanho é definido pelo metodo getTamanho da classe entidade
-        for(int x = 0; x < professor2.getTamanho(); x++){
+        for(int x = 0; x < professor1.getTamanho(); x++){
             System.out.println("Digite o nome:");
             String nome = sc.nextLine();
 
             //Objeto que chama o metodo adicionarProfessor em que vai receber o nome de cada professor e atribuir a uma posição
-            professor2.addProfessor(nome);
+            professor1.addProfessor(nome);
+
         }
 
-        //Estrutura de repetição que vai receber um objeto que puxa o metodo getNomeProfessor que vai pegar o nome dos professores da lista e exibir cada um em sua posição
-        for(int x = 0; x < professor2.getNomesprofessores().length; x++){
-            System.out.println(professor2.getNomesprofessores()[x]);
-        }
+
     }
 
 
@@ -61,8 +70,8 @@ public class aulaOrientacao {
             professor2.addMatriculaProfessor(matricula);
         }
 
-        for(int x = 0; x < professor2.getMatriculasProfessores().length; x++){
+        /*for(int x = 0; x < professor2.getMatriculasProfessores().length; x++){
             System.out.println(professor2.getMatriculasProfessores()[x]);
-        }
+        }*/
     }
 }

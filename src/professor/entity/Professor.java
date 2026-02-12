@@ -7,18 +7,21 @@ public class Professor {
     private static int contador;
     private static int contadorMatricula;
     private static int tamanho;
+    private String nome;
 
     //Construtor que possui a variavel int tamanho e preciso de um construtor par aatribuir o tamanho da lista
     public Professor(int tamanho){
         Professor.tamanho = tamanho;
-
     }
 
-    //Construtor responsavel por dar o tamanho das listas
+
+    //Construtor responsavel por dar o tamanho das listas podendo separar por metodos, definir construtor para tamanho da lista e outro para receber o tamanho
     public Professor(){
         nomesprofessores = new String[tamanho];
         matriculasProfessores = new String[tamanho];
+
     }
+
 
     //Metodo que é utilizado para retorna os nomes dentro da lista Nomesprofessores ao usuario
     public String[] getNomesprofessores() {
@@ -35,6 +38,7 @@ public class Professor {
         nomesprofessores[contador] = nomeDoproprioMetodo;
         contador++;
     }
+
 
     public String[] getMatriculasProfessores() {
         return matriculasProfessores;
