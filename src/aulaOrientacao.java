@@ -4,7 +4,7 @@ import professor.entity.Professor;
 import java.util.Scanner;
 
 public class aulaOrientacao {
-        //Função principal que vai execcutar o codigo
+        //Função principal que vai executar o codigo
     public static void main(String[] args){
         //Objeto sc que vai instaciar a classe Scanner e que vai puxar os dados atribuidos pelo usuario
         Scanner sc = new Scanner(System.in);
@@ -17,7 +17,20 @@ public class aulaOrientacao {
         Professor professor2 = new Professor(tamanhousuario);
 
         //Parametro que limpa a memoria para não ocorrer nenhum erro!
-        sc.nextLine();
+        //sc.nextLine();
+
+
+       nomeLista();
+
+        System.out.println();
+
+        matriculaLista();
+
+    }
+
+    public static void nomeLista(){
+        Scanner sc = new Scanner(System.in);
+        Professor professor2 = new Professor();
 
         //Estrutura de repetição que atribui um nome a uma posição dentro da lista professor e o tamanho é definido pelo metodo getTamanho da classe entidade
         for(int x = 0; x < professor2.getTamanho(); x++){
@@ -31,6 +44,25 @@ public class aulaOrientacao {
         //Estrutura de repetição que vai receber um objeto que puxa o metodo getNomeProfessor que vai pegar o nome dos professores da lista e exibir cada um em sua posição
         for(int x = 0; x < professor2.getNomesprofessores().length; x++){
             System.out.println(professor2.getNomesprofessores()[x]);
+        }
+    }
+
+
+
+    public static void matriculaLista(){
+        Scanner sc = new Scanner(System.in);
+        Professor professor2 = new Professor();
+
+        for(int x = 0; x < professor2.getTamanho(); x++){
+            System.out.println("Digite a matricula:");
+            String matricula = sc.nextLine();
+
+
+            professor2.addMatriculaProfessor(matricula);
+        }
+
+        for(int x = 0; x < professor2.getMatriculasProfessores().length; x++){
+            System.out.println(professor2.getMatriculasProfessores()[x]);
         }
     }
 }
